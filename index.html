@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
-  <title style="font-family:Sansation Light">Go Resume</title>
+<title style="font-family:Sansation Light">Go Resume</title>
 
 <head>
     <meta charset="utf-8">
@@ -14,96 +14,77 @@
 </head>
 
 <body style="font-family:Sansation Light">
-    
 
-<!-- <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDgX-yK5PWedJl6tCSOZkoQXMhp1KzcOnY",
-    authDomain: "go-resume-5cf00.firebaseapp.com",
-    databaseURL: "https://go-resume-5cf00.firebaseio.com",
-    projectId: "go-resume-5cf00",
-    storageBucket: "",
-    messagingSenderId: "861175597552"
-  };
-  firebase.initializeApp(config);
-</script> -->
-   <!-- <script>
-        //init & stup FB sdk
+    <script>
         window.fbAsyncInit = function () {
             FB.init({
                 appId: '149837395588304',
-                cookie: true,
                 xfbml: true,
-                version: 'v2.9'
+                version: 'v2.10'
             });
             FB.AppEvents.logPageView();
-            FB.getLoginStatus(function(response){
-                if(response.status === 'connected'){
-                    getElementById('status').innerHTML = "We are connected";
-                }
-                else if (response.status === 'not_authorized'){
-                     getElementById('status').innerHTML = "We are not connected";
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    console.log('Welcome!  Fetching your information.... ');
+                    FB.api('/me', function (response) {
+                        console.log('Good to see you, ' + response.name + '.');
+                        console.log(response)
+                    });
+                } else {
+                    console.log('User cancelled login or did not fully authorize.');
                 }
             });
         };
 
+        //   (function(d, s, id){
+        //      var js, fjs = d.getElementsByTagName(s)[0];
+        //      if (d.getElementById(id)) {return;}
+        //      js = d.createElement(s); js.id = id;
+        //      js.src = "//connect.facebook.net/en_US/sdk.js";
+        //      fjs.parentNode.insertBefore(js, fjs);
+        //    }(document, 'script', 'facebook-jssdk'));
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) { return; }
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk')
+        );
+
+    </script>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=149837395588304";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+    </script>
 
-    </script> -->
+
     <div id="status"></div>
 
     <nav class="navbar navbar-inverse">
         <div class="container" style="font-family:Sansation Light">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">⚡Go Resume</a>
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">?Go Resume</a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
+            <div style="float:right" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false"
+                data-auto-logout-link="false" data-use-continue-as="false"></div>
             <div class="collapse navbar-collapse" id="navcol-1">
-                
-              <!--  <button class="btn btn-success navbar-btn navbar-right" >Join </button>
-                <div class="modal fade" id="join-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe1" aria-hidden="true" style="display: none;">
-                 <div class="modal-dialog">
-				<div class="loginmodal-container">
-					<h1>Create Your Account</h1><br>
-				  <form>
-					<input type="text" name="user" placeholder="Username">
-                    <input type="text" name="email" placeholder="Email">
-					<input type="password" name="pass" placeholder="Password">
-					<input type="submit" name="join" class="login loginmodal-submit" value="Create">
-				  </form>
-				</div>
-			</div>
-		  </div> -->
-<a class="btn btn-success navbar-btn navbar-right"
+
+
+                <!--<a class="btn btn-success navbar-btn navbar-right"
                             role="button" <base href="http://localhost:4000/users/login" target="_blank" />Login</a>
                             <a class="btn btn-primary navbar-btn navbar-right"
-                            role="button" <base href="http://localhost:4000/users/register" target="_blank" />Register</a>
-               <!-- <button class="btn btn-success navbar-btn navbar-right" role="button"  <base href="http://localhost:3000" target="_blank"/>Login </button>
-                <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    	  <div class="modal-dialog">
-				<div class="loginmodal-container">
-					<h1>Login to Your Account</h1><br>
-				  <form>
-					<input type="text" name="user" placeholder="Username">
-					<input type="password" name="pass" placeholder="Password">
-					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
-				  </form>
-					
-				  <div class="login-help">
-					<a href="#">Register</a> - <a href="#">Forgot Password</a>
-				  </div>
-				</div>
-			</div>
+                            role="button" <base href="http://localhost:4000/users/register" target="_blank" />Register</a>-->
+
                 <ul class="nav navbar-nav navbar-right"></ul>
-            </div>  
-        </div>-->
+            </div>
+        </div>
     </nav>
     <div class="jumbotron hero" style="font-family:Sansation Light">
         <div class="container">
@@ -111,14 +92,22 @@
                 <div class="col-md-6 col-md-offset-4 col-md-pull-3 get-it">
                     <h1 class="text-muted">Go Resume</h1>
                     <p>Create Unlimited Resumes, Explore Jobs, Publish your resumes, Share them on Social Media.</p>
-                    <p><a class="btn btn-primary btn-lg" role="button" href="../Create Resume/builder.html" target="_blank">Create Resume</a><a class="btn btn-success btn-lg"
-                            role="button" <base href="http://localhost:3000" target="_blank" />Explore Jobs</a>
+                    <p><a class="btn btn-primary btn-lg" role="button" href="../Create Resume/builder.html" target="_blank">Create Resume</a><a
+                            class="btn btn-success btn-lg" role="button" <base href="http://localhost:3000" target="_blank" />Explore
+                        Jobs</a>
                     </p>
                 </div>
             </div>
         </div>
     </div>
     <section class="testimonials" style="font-family:Sansation Light">
+
+        <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
         <h2 class="text-center">It's Free.!</h2>
         <blockquote>
             <p>This is a non-profit application, that allows you to increase you productivity, &amp; explore what suits you
@@ -135,14 +124,14 @@
                 </div>
                 <div class="col-md-6" style="font-family:Sansation Light">
                     <div class="row icon-features">
-                         <div class="col-xs-4 icon-feature"><i class="glyphicon glyphicon-flash"></i>
+                        <div class="col-xs-4 icon-feature"><i class="glyphicon glyphicon-flash"></i>
                             <p>Fast</p>
                         </div>
                         <div class="col-xs-4 icon-feature"><i class="glyphicon glyphicon-piggy-bank"></i>
                             <p>Free</p>
                         </div>
                         <div class="col-xs-4 icon-feature"><i class="glyphicon glyphicon-hand-right"></i>
-                        <p>Secure</p>
+                            <p>Secure</p>
                         </div>
                     </div>
                 </div>
@@ -153,27 +142,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <h5>Go Resume© 2017</h5>
+                    <h5>Go Resume� 2017</h5>
                 </div>
                 <div class="col-sm-6 social-icons"><a href="https://www.facebook.com/Go-Resume-1813690295611919/" target="_blank"><i class="fa fa-facebook"></i></a>
-                    <a
-                        href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    <a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
             </div>
         </div>
     </footer>
-    <script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDgX-yK5PWedJl6tCSOZkoQXMhp1KzcOnY",
-    authDomain: "go-resume-5cf00.firebaseapp.com",
-    databaseURL: "https://go-resume-5cf00.firebaseio.com",
-    projectId: "go-resume-5cf00",
-    storageBucket: "go-resume-5cf00.appspot.com",
-    messagingSenderId: "861175597552"
-  };
-  firebase.initializeApp(config);
-</script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
