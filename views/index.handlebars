@@ -1,0 +1,28 @@
+ <h2 class="page-header">Dashboard</h2>
+<p>Welcome to your dashboard</p>  
+<button id = "getData">Get data</button>
+<div id="data"></div>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+		jQuery(function($){
+            var $getData = $('#getData');
+            var $data = $('#data');
+            $getData.click(function(e){
+             $.ajax({
+      url: "/findingUser",
+      type: "GET",
+      data: {
+        format: "json"
+      },
+      dataType: "json",
+      success: function(data) {
+       console.log('This is data coming from server ', data);
+       $data.append('<span class="error"><h3>'+ JSON.stringify(data) + "</h3><br /></span>");
+        },
+      error: function(err) {
+        console.log("error in get of room" + err);
+              },
+        });
+		});
+        });
+	</script>
